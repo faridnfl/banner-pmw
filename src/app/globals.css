@@ -11,7 +11,7 @@
   display: flex;
   width: 500px;
   padding: 0px 14px;
-  height: 290px;
+  height: 320px;
   flex-direction: column;
   align-items: flex-start;
   gap: 0px;
@@ -62,4 +62,26 @@
   align-self: stretch;
   border-radius: 12px;
   background: #F27C0E;
+}
+
+.cta-button{
+  display: flex;
+  padding: 10px 177px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+
+  border-radius: 12px;
+  background: #ef7b08;
+}
+
+.text-form  {
+  width: 100%;
+  height: 30px;
+}
+
+.text-form input {
+  width: 100%;
+  height: 30px;
 }
