@@ -7,14 +7,22 @@ import"./globals.css"
 export default function Home() {
 
   const [nama, setNama] = useState('Farid Naufal Afiq')
+  const [namaBaru, gantiNama]= useState("")
 
-  function handlerGantiNama(){
-    const inputNama = document.querySelector('input[name="inputnama"]').value;
-    setNama(inputNama);
+  function handleChangeName(event) {
+    gantiNama(event.target.value);
   }
 
-  
+  function handlerGantiNama() {
+    setNama(namaBaru);
+    gantiNama("");
+  }
 
+  function pressEnter(event) {
+    if (event.key === 'Enter') {
+      handlerGantiNama();
+    }
+  }
 
 
   return (
@@ -40,7 +48,7 @@ export default function Home() {
         <div className="cta-banner-wrapper">
           {/* Tombol CTA */}
           <div className="text-form">
-                <input type="text" name="inputnama" />
+                <input type="text" name="inputnama" onChange={handleChangeName} onKeyPress={pressEnter} />
           </div>
           <div className="cta-button" style={{ marginTop: "12px"}} onClick={handlerGantiNama}>
               <p>Ganti Nama</p>
