@@ -58,7 +58,7 @@ export default function Home() {
             className="cta-button"
             style={{ marginTop: "12px", backgroundColor: isInputEmpty ? "gray" : "orange", cursor: isInputEmpty ? "not-allowed" : "pointer" }}
             onClick={isInputEmpty ? null : handlerGantiNama}>
-            <p style={{ color: isInputEmpty ? "white" : "black" }}>{isInputEmpty ? "DISABLED" : "Halo!"}</p>
+            <p style={{ color: isInputEmpty ? "white" : "black" }}>{isInputEmpty ? "DISABLED" : "Test-Staging"}</p>
           </div>
         </div>
       </div>
