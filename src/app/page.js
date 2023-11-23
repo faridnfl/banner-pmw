@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from "next/image";
-import"./globals.css"
+import "@style/home.css"
 
 export default function Home() {
 
@@ -14,8 +14,10 @@ export default function Home() {
   }
 
   function handlerGantiNama() {
-    setNama(namaBaru);
-    gantiNama("");
+    if (namaBaru.trim() !== "") {
+      setNama(namaBaru);
+      gantiNama("");
+    }
   }
 
   function pressEnter(event) {
@@ -23,6 +25,8 @@ export default function Home() {
       handlerGantiNama();
     }
   }
+
+  const isInputEmpty = namaBaru.trim() === "";
 
 
   return (
@@ -37,7 +41,7 @@ export default function Home() {
           </div>
           <div className="Content-header-banner" class="*">
               {/* Nama dan kawan2 */}
-              <h1>{nama}</h1>
+              <h1 className='nama'>{nama}</h1>
               <div className="bio-nim-header-banner">
                 {/* NIM dan bio */}
                 <p>D121211012</p>
@@ -48,10 +52,13 @@ export default function Home() {
         <div className="cta-banner-wrapper">
           {/* Tombol CTA */}
           <div className="text-form">
-                <input type="text" name="inputnama" onChange={handleChangeName} onKeyPress={pressEnter} />
+                <input type="text" name="inputnama" value={namaBaru} onChange={handleChangeName} onKeyPress={pressEnter} />
           </div>
-          <div className="cta-button" style={{ marginTop: "12px"}} onClick={handlerGantiNama}>
-              <p>Ganti Nama</p>
+          <div
+            className="cta-button"
+            style={{ marginTop: "12px", backgroundColor: isInputEmpty ? "gray" : "orange", cursor: isInputEmpty ? "not-allowed" : "pointer" }}
+            onClick={isInputEmpty ? null : handlerGantiNama}>
+            <p style={{ color: isInputEmpty ? "white" : "black" }}>{isInputEmpty ? "DISABLED" : "Halo!"}</p>
           </div>
         </div>
       </div>

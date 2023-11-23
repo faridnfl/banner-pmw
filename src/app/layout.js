@@ -1,3 +1,5 @@
+import '@style/global.css'
+import Navbar from '@components/navbar/navbar.js'
 
 export const metadata = {
   title: 'Farid Naufal Afiq',
@@ -7,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar/>
+        {children}
+      </body>
     </html>
   )
 }
